@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>무궁화 꽃이 피었습니다</title>
+  </head>
+
+  <style>
+    #warn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+    }
+
+    #gamestart {
+      position: absolute;
+      left: 50%;
+      top: 10%;
+      width: 20%;
+      height: 7%;
+      color: black;
+      transform: translate(-50%, -50%);
+      visibility: hidden;
+    }
+
+    #gameOver {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: black;
+      visibility: hidden;
+      font-size: 20px;
+    }
+
+    ol {
+      line-height: 1.5em;
+    }
+  </style>
+
+  <body>
+    <div id="overlay">
+      <div class="info-area">
+        <div id="info"></div>
+        <button
+          style="
+            position: absolute;
+            left: 40%;
+            top: 80%;
+            width: 20%;
+            height: 7%;
+          "
+          id="xr-button"
+          disabled
+        >
+          XR not found
+        </button>
+        <div id="warn"></div>
+      </div>
+      <button id="gamestart"></button>
+    </div>
+    <div id="gameOver">게임오버!!</div>
+    <div id="gameInfo" style="margin: 2rem">
+      <h1>게임방법</h1>
+      <hr />
+      <ol type="1">
+        <li>ArCore를 지원하는 디바이스의 Chrome브라우저에서만 작동합니다.</li>
+        <li>5미터 이상 떨어진 공간을 확보해주세요.</li>
+        <li>화면을 터치해 술래를 설치해주세요.</li>
+        <li>술래가 나타나면 위의 게임시작 버튼을 눌러주세요.</li>
+        <li>술래는 앞뒤가 똑같아 보이지만 앞면만 코가 튀어나와 있습니다!</li>
+        <li>
+          술래의 앞면이 당신을 바라볼때 핸드폰이 10cm이상 움직이면 실패합니다.
+        </li>
+        <li>술래에게 들키지 않고 무사히 다가가면 성공합니다.</li>
+        <li>행운을 빌어요!</li>
+      </ol>
+    </div>
+
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
