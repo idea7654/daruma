@@ -255,12 +255,12 @@ function updateAnimation() {
         }
       }
       if (playerVector) {
-        if (playerVector.distanceTo(model.position) < 6) {
+        if (playerVector.distanceTo(model.position) < 2) {
           //터치할 수 있는 로직
           xrSession.end();
-          document.getElementById(
-            "gameOver"
-          ).innerHTML = `걸린시간 : ${successTime}초`;
+          document.getElementById("gameOver").innerHTML = `걸린시간 : ${
+            successTime / 1000
+          }초`;
           document.getElementById("gameOver").style.visibility = "visible";
           goalFlag = true;
         }
@@ -311,7 +311,11 @@ function updateAnimation() {
     model.rotation.x = 0;
     model.rotation.z = 0;
     model.rotation.y = 0;
-    model.position.set(0, -1.5, -1).applyMatrix4(controller.matrixWorld);
+    model.position.set(
+      playerVector.x,
+      playerVector.y - 1,
+      playerVector.z - 1.5
+    );
     setTimeout(function () {
       xrSession.end();
       document.getElementById("gameOver").style.visibility = "visible";
