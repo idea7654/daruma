@@ -8,25 +8,12 @@ const options = {
 };
 const app = express();
 
-const port = 443;
+const port = 3000;
 const host = "0.0.0.0";
 
 app.set("port", port);
 app.use(express.static("public"));
 
-options ? https.createServer(options, app).listen(port) : undefined;
-
-options
-  ? http
-      .createServer(function (req, res) {
-        res.writeHead(301, {
-          Location: "https://" + req.headers["host"] + req.url,
-        });
-        res.end();
-      })
-      .listen(80)
-  : http.createServer(app).listen(PORT, () => {
-      console.log(`Server is running at port ${PORT}`);
-    });
+https.createServer(options, app).listen(port);
 
 module.exports = app;
