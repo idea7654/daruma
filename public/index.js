@@ -367,5 +367,7 @@ function submitFunc() {
     nick: nick,
     time: successTime / 1000,
   };
-  axios.post("https://mwgame.site/api/ranking", body);
+  axios.post("https://mwgame.site/api/ranking", body).then((res) => {
+    console.log(res);
+  });
 }

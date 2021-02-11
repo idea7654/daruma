@@ -30,7 +30,7 @@ app.post("/api/ranking", (req, res) => {
   console.log(req.body);
   const { nick, time } = req.body;
   rank.push({ nick: nick, time: time });
-  res.redirect("https://mwgame.site");
+  res.status(200).send("성공");
 });
 
 https.createServer(options, app).listen(port);
