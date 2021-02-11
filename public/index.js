@@ -350,8 +350,8 @@ function rankingFunc() {
   document.getElementById("rankingInfo").style.visibility = "visible";
   axios.get("https://mwgame.site/api/ranking").then((res) => {
     const rankList = document.getElementById("rankList");
-    for (let i in res) {
-      rankList.append(`<li>${res[i].nick}: ${res[i].time}</li>`);
+    for (let i in res.data) {
+      rankList.append(`<li>${res.data[i].nick}: ${res.data[i].time}</li>`);
     }
   });
 }
