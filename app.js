@@ -12,10 +12,6 @@ const cors = require("cors");
 let rank = [{ nick: "이데아", time: "2.37" }];
 
 app.set("port", port);
-app.use(express.static("public"));
-app.use(cors());
-app.use(express.json());
-
 app.use(function (req, res, next) {
   console.log("작동중");
   if (req.secure) {
@@ -26,6 +22,9 @@ app.use(function (req, res, next) {
     res.redirect("https://" + req.headers.host + req.url);
   }
 });
+app.use(express.static("public"));
+app.use(cors());
+app.use(express.json());
 
 app.get("/api/ranking", (req, res) => {
   res.set({ "access-control-allow-origin": "*" });
