@@ -256,7 +256,7 @@ function updateAnimation() {
         }
       }
       if (playerVector) {
-        if (playerVector.distanceTo(model.position) < 5) {
+        if (playerVector.distanceTo(model.position) < 2) {
           //터치할 수 있는 로직
           xrSession.end();
           document.getElementById("gameOver").innerHTML = `걸린시간 : ${
@@ -351,12 +351,14 @@ function rankingFunc() {
   rankingInfo.style.visibility = "visible";
   const rankList = document.getElementById("rankList");
   console.log(rankList.childNodes);
-  axios.get("https://mwgame.site/api/ranking").then((res) => {
-    for (let i in res.data) {
-      rankList.append(`${res.data[i].nick}: ${res.data[i].time}초`);
-      rankList.appendChild(document.createElement("br"));
-    }
-  });
+  if (rankList.childNodes.length < 3) {
+    axios.get("https://mwgame.site/api/ranking").then((res) => {
+      for (let i in res.data) {
+        rankList.append(`${res.data[i].nick}: ${res.data[i].time}초`);
+        rankList.appendChild(document.createElement("br"));
+      }
+    });
+  }
 }
 
 function exitFunc() {
