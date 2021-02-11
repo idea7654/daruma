@@ -16,13 +16,14 @@ app.use(express.static("public"));
 app.use(cors());
 app.use(express.json());
 
-app.get("*", (req, res, next) => {
+app.use(function (req, res, next) {
+  console.log("작동중");
   if (req.secure) {
+    // request was via https, so do no special handling
     next();
   } else {
-    let to = "https://" + req.headers.host + req.url;
-    console.log(to);
-    return res.redirect("https://" + req.headers.host + req.url);
+    // request was via http, so redirect to https
+    res.redirect("https://" + req.headers.host + req.url);
   }
 });
 
