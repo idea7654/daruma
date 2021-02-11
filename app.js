@@ -17,7 +17,7 @@ app.use(express.json());
 
 app.use((req, res, next) => {
   if (!req.secure) {
-    res.redirect("https://mwgame.site");
+    res.redirect("https://mwgame.site" + req.url);
   } else {
     next();
   }
