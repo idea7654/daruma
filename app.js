@@ -16,7 +16,7 @@ app.use(express.static("public"));
 app.use(cors());
 app.use(express.json());
 
-app.use((req, res, next) => {
+app.get("*", (req, res, next) => {
   let protocol = req.headers["x-forwarded-proto"] || req.protocol;
 
   if (protocol === "https") {
