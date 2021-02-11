@@ -256,7 +256,7 @@ function updateAnimation() {
         }
       }
       if (playerVector) {
-        if (playerVector.distanceTo(model.position) < 2) {
+        if (playerVector.distanceTo(model.position) < 5) {
           //터치할 수 있는 로직
           xrSession.end();
           document.getElementById("gameOver").innerHTML = `걸린시간 : ${
