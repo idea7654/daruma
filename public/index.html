@@ -39,8 +39,6 @@
       position: absolute;
       left: 50%;
       top: 10%;
-      width: 20%;
-      height: 7%;
       color: black;
       transform: translate(-50%, -50%);
       visibility: hidden;
@@ -90,14 +88,14 @@
         </button>
         <div id="warn"></div>
       </div>
-      <button id="gamestart"></button>
+      <button id="gamestart" class="bg-green-500 text-white active:bg-green-600 font-bold uppercase text-xs rounded shadow hover:shadow-md outline-none focus:outline-none px-4 py-2 mt-2"></button>
     </div>
     <div id="gameOver">
       게임오버!!
     </div>
     <div id="submitServe" style="position: absolute; left: 50%; top: 70%; transform: translate(-50%, -50%); visibility: hidden;">
       <input id="submitInput" type="text" placeholder="닉네임을 입력해주세요" />
-      <button id="btServer">등록</button>
+      <button id="btServer" class="bg-green-500 text-white active:bg-green-600 font-bold uppercase text-xs rounded shadow hover:shadow-md outline-none focus:outline-none px-4 py-2 mt-2">등록</button>
     </div>
     <div id="gameInfo" style="margin: 2rem">
       <p class="text-3xl mb-2">게임방법</p>
