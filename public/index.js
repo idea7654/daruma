@@ -372,6 +372,6 @@ function submitFunc() {
     time: successTime / 1000,
   };
   axios.post("https://mwgame.site/api/ranking", body).then((res) => {
-    console.log(res);
+    window.location.href = window.location.href;
   });
 }
