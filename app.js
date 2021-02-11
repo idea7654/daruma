@@ -7,6 +7,7 @@ const options = {
 };
 const app = express();
 const port = 3000;
+const http = require("http");
 const cors = require("cors");
 let rank = [{ nick: "이데아", time: "2.37" }];
 
@@ -45,7 +46,7 @@ app.post("/api/ranking", (req, res) => {
   rank.push({ nick: nick, time: time });
   res.status(200).send("성공");
 });
-
+http.createServer(app).listen(4000);
 https.createServer(options, app).listen(port);
 
 module.exports = app;
