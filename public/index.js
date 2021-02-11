@@ -352,7 +352,7 @@ function rankingFunc() {
     const rankList = document.getElementById("rankList");
     for (let i in res.data) {
       rankList.append(`${res.data[i].nick}: ${res.data[i].time}초`);
-      rankList.appendChild("br");
+      rankList.appendChild(document.createElement("br"));
     }
   });
 }
