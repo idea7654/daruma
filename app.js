@@ -8,14 +8,11 @@ const options = {
 };
 const app = express();
 const port = 3000;
-const io = require("socket.io")(443);
+const cors = require("cors");
 
 app.set("port", port);
 app.use(express.static("public"));
-
-io.on("connection", (socket) => {
-  console.log("a user connected");
-});
+app.use(cors());
 
 app.get("/api/ranking", (req, res) => {
   console.log(req);
