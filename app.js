@@ -17,15 +17,12 @@ app.use(cors());
 app.use(express.json());
 
 app.get("*", (req, res, next) => {
-  let protocol = req.headers["x-forwarded-proto"] || req.protocol;
-
-  if (protocol === "https") {
+  if (req.secure) {
     next();
   } else {
-    let from = `${protocol}://${req.hostname}${req.url}`;
-    let to = `https://${req.hostname}${req.url}`;
-    console.log(from, to);
-    res.redirect(to);
+    let to = "https://" + req.headers.host + req.url;
+    console.log(to);
+    return res.redirect("https://" + req.headers.host + req.url);
   }
 });
 
