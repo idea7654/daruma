@@ -349,7 +349,7 @@ document.getElementById("btServer").addEventListener("click", submitFunc);
 function rankingFunc() {
   const rankingInfo = document.getElementById("rankingInfo");
   rankingInfo.style.visibility = "visible";
-  console.log(rankingInfo);
+  console.log(rankingInfo.childNodes);
   axios.get("https://mwgame.site/api/ranking").then((res) => {
     const rankList = document.getElementById("rankList");
     for (let i in res.data) {
