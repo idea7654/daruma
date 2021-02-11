@@ -8,7 +8,7 @@ const options = {
 const app = express();
 const port = 3000;
 const cors = require("cors");
-let rank = [];
+let rank = [{ nick: "이데아", time: "2.37" }];
 
 app.set("port", port);
 app.use(express.static("public"));
