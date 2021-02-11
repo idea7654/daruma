@@ -15,6 +15,14 @@ app.use(express.static("public"));
 app.use(cors());
 app.use(express.json());
 
+app.use((req, res, next) => {
+  if (!req.secure) {
+    res.redirect("https://mwgame.site");
+  } else {
+    next();
+  }
+});
+
 app.get("/api/ranking", (req, res) => {
   res.set({ "access-control-allow-origin": "*" });
   rank.sort((a, b) => {
