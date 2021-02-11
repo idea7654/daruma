@@ -340,3 +340,16 @@ function onXRFrame(t, frame) {
 }
 
 checkXR();
+
+document.getElementById("ranking").addEventListener("click", rankingFunc);
+document.getElementById("exit").addEventListener("click", exitFunc);
+function rankingFunc() {
+  document.getElementById("rankingInfo").style.visibility = "visible";
+  axios.get("https://mwgame.site/api/ranking").then((res) => {
+    console.log(res);
+  });
+}
+
+function exitFunc() {
+  document.getElementById("rankingInfo").style.visibility = "hidden";
+}

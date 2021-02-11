@@ -6,8 +6,13 @@
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.css"
+    />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>무궁화 꽃이 피었습니다</title>
     <script
       data-ad-client="ca-pub-5755009736026496"
@@ -17,6 +22,11 @@
   </head>
 
   <style>
+    #ranking {
+      position: absolute;
+      left: 75%;
+    }
+
     #warn {
       position: absolute;
       top: 50%;
@@ -52,19 +62,29 @@
   </style>
 
   <body>
+    <div>
+      <button
+        id="ranking"
+        class="bg-green-500 text-white active:bg-green-600 font-bold uppercase text-xs rounded shadow hover:shadow-md outline-none focus:outline-none px-4 py-2 mt-2"
+        type="button"
+        style="transition: all 0.15s ease"
+      >
+        랭킹보기
+      </button>
+    </div>
     <div id="overlay">
       <div class="info-area">
         <div id="info"></div>
         <button
           style="
             position: absolute;
-            left: 40%;
+            left: 50%;
             top: 80%;
-            width: 20%;
-            height: 7%;
+            transform: translate(-50%, -50%);
           "
           id="xr-button"
           disabled
+          class="bg-green-500 text-white active:bg-green-600 font-bold uppercase text-xs rounded shadow hover:shadow-md outline-none focus:outline-none px-4 py-2 mt-2"
         >
           XR not found
         </button>
@@ -74,7 +94,7 @@
     </div>
     <div id="gameOver">게임오버!!</div>
     <div id="gameInfo" style="margin: 2rem">
-      <h1>게임방법</h1>
+      <p class="text-3xl mb-2">게임방법</p>
       <hr />
       <ol type="1">
         <li>ArCore를 지원하는 디바이스의 Chrome브라우저에서만 작동합니다.</li>
@@ -88,6 +108,36 @@
         <li>술래에게 들키지 않고 무사히 다가가면 성공합니다.</li>
         <li>행운을 빌어요!</li>
       </ol>
+    </div>
+    <div id="rankingInfo" style="visibility: hidden">
+      <div
+        class="flex items-center justify-center fixed left-0 bottom-0 w-full h-full bg-gray-800"
+      >
+        <div class="bg-white rounded-lg w-1/2">
+          <div class="flex flex-col items-start p-4">
+            <div class="flex items-center w-full">
+              <div class="text-gray-900 font-medium text-lg">
+                랭킹
+              </div>
+              <svg
+                id="exit"
+                class="ml-auto fill-current text-gray-700 w-6 h-6 cursor-pointer"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 18 18"
+              >
+                <path
+                  d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"
+                />
+              </svg>
+            </div>
+            <hr />
+            <div class="">
+              <li id="rankList"></li>
+            </div>
+            <hr />
+          </div>
+        </div>
+      </div>
     </div>
 
     <script type="module" src="index.js"></script>
