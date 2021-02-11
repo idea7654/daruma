@@ -24,7 +24,7 @@ app.use((req, res, next) => {
   } else {
     let from = `${protocol}://${req.hostname}${req.url}`;
     let to = `https://${req.hostname}${req.url}`;
-
+    console.log(from, to);
     res.redirect(to);
   }
 });
