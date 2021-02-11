@@ -349,9 +349,9 @@ document.getElementById("btServer").addEventListener("click", submitFunc);
 function rankingFunc() {
   const rankingInfo = document.getElementById("rankingInfo");
   rankingInfo.style.visibility = "visible";
-  console.log(rankingInfo.childNodes);
+  const rankList = document.getElementById("rankList");
+  console.log(rankList.childNodes);
   axios.get("https://mwgame.site/api/ranking").then((res) => {
-    const rankList = document.getElementById("rankList");
     for (let i in res.data) {
       rankList.append(`${res.data[i].nick}: ${res.data[i].time}초`);
       rankList.appendChild(document.createElement("br"));
