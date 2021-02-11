@@ -347,7 +347,9 @@ document.getElementById("ranking").addEventListener("click", rankingFunc);
 document.getElementById("exit").addEventListener("click", exitFunc);
 document.getElementById("btServer").addEventListener("click", submitFunc);
 function rankingFunc() {
-  document.getElementById("rankingInfo").style.visibility = "visible";
+  const rankingInfo = document.getElementById("rankingInfo");
+  rankingInfo.style.visibility = "visible";
+  console.log(rankingInfo);
   axios.get("https://mwgame.site/api/ranking").then((res) => {
     const rankList = document.getElementById("rankList");
     for (let i in res.data) {
