@@ -16,10 +16,15 @@ app.use(cors());
 app.use(express.json());
 
 app.use((req, res, next) => {
-  if (!req.secure) {
-    res.redirect("https://mwgame.site" + req.url);
-  } else {
+  let protocol = req.headers["x-forwarded-proto"] || req.protocol;
+
+  if (protocol === "https") {
     next();
+  } else {
+    let from = `${protocol}://${req.hostname}${req.url}`;
+    let to = `https://${req.hostname}${req.url}`;
+
+    res.redirect(to);
   }
 });
 
