@@ -16,6 +16,7 @@ app.use(cors());
 
 app.get("/api/ranking", (req, res) => {
   console.log(req);
+  res.set({ "access-control-allow-origin": "*" });
   res.status(200).json({ response: "ok" });
 });
 
