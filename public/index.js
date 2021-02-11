@@ -27,6 +27,7 @@ let playTime = null;
 let intervalFlag = true;
 let gameEnd = false;
 let voiceFlag = true;
+let successTime;
 const initScene = (gl, session) => {
   //-- scene, camera
   scene = new THREE.Scene();
@@ -230,7 +231,7 @@ function updateAnimation() {
     }
   }
   if (gameStart && !gameEnd) {
-    let successTime = 0;
+    successTime = 0;
     if (!goalFlag) {
       successTime = Date.now() - gameCount;
     }
@@ -261,6 +262,7 @@ function updateAnimation() {
           document.getElementById("gameOver").innerHTML = `걸린시간 : ${
             successTime / 1000
           }초`;
+          document.getElementById("submitServe").style.visibility = "visible";
           document.getElementById("gameOver").style.visibility = "visible";
           goalFlag = true;
         }
@@ -343,13 +345,28 @@ checkXR();
 
 document.getElementById("ranking").addEventListener("click", rankingFunc);
 document.getElementById("exit").addEventListener("click", exitFunc);
+document.getElementById("btServer").addEventListener("click", submitFunc);
 function rankingFunc() {
   document.getElementById("rankingInfo").style.visibility = "visible";
   axios.get("https://mwgame.site/api/ranking").then((res) => {
-    console.log(res);
+    const rankList = document.getElementById("rankList");
+    for (let i in res) {
+      rankList.append(`<li>${res[i].nick}: ${res[i].time}</li>`);
+    }
   });
 }
 
 function exitFunc() {
   document.getElementById("rankingInfo").style.visibility = "hidden";
+}
+
+function submitFunc() {
+  const nick = document.getElementById("submitInput").value;
+  let body = {
+    nick: nick,
+    time: successTime / 1000,
+  };
+  axios.post("https://mwgame.site/api/ranking", body).then((res) => {
+    console.log(res);
+  });
 }

@@ -92,7 +92,13 @@
       </div>
       <button id="gamestart"></button>
     </div>
-    <div id="gameOver">게임오버!!</div>
+    <div id="gameOver">
+      게임오버!!
+    </div>
+    <div id="submitServe" style="position: absolute; left: 50%; top: 70%; transform: translate(-50%, -50%); visibility: hidden;">
+      <input id="submitInput" type="text" placeholder="닉네임을 입력해주세요" />
+      <button id="btServer">등록</button>
+    </div>
     <div id="gameInfo" style="margin: 2rem">
       <p class="text-3xl mb-2">게임방법</p>
       <hr />
@@ -132,7 +138,7 @@
             </div>
             <hr />
             <div class="">
-              <li id="rankList"></li>
+              <ul id="rankList"></li>
             </div>
             <hr />
           </div>
