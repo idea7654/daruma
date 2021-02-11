@@ -27,6 +27,7 @@ app.get("/api/ranking", (req, res) => {
 });
 
 app.post("api/ranking", (req, res) => {
+  console.log(req.body);
   const { nick, time } = req.body;
   rank.push({ nick: nick, time: time });
   res.status(200).send("성공");

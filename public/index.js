@@ -351,7 +351,7 @@ function rankingFunc() {
   axios.get("https://mwgame.site/api/ranking").then((res) => {
     const rankList = document.getElementById("rankList");
     for (let i in res.data) {
-      rankList.append(`<li>${res.data[i].nick}: ${res.data[i].time}</li>`);
+      rankList.append(`${res.data[i].nick}: ${res.data[i].time}`);
     }
   });
 }
