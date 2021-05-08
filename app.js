@@ -44,24 +44,7 @@ app.get(
       err,
       data
     ) {
-      const split = data.split("\n");
-      console.log(split);
-      var template = `
-    <!doctype html>
-    <html>
-    <head>
-      <meta charset="utf-8">
-    </head>
-    <body>
-      ${split[0]}
-      <br>
-      ${split[1]}
-      <br>
-      ${split[2]}
-    </body>
-    </html>
-    `;
-      res.end(template);
+      res.end(data);
     });
   }
 );
