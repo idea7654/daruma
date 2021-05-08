@@ -2,6 +2,7 @@ const express = require("express");
 const https = require("https");
 const fs = require("fs");
 const options = {
+  ca: false.readFileSync("./ca_bundle.crt"),
   key: fs.readFileSync("./private.key"),
   cert: fs.readFileSync("./certificate.crt"),
 };
