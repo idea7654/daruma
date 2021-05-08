@@ -44,7 +44,7 @@ app.get(
       err,
       data
     ) {
-      const split = data.split(" ");
+      const split = data.split("¥n");
       console.log(split);
       var template = `
     <!doctype html>
