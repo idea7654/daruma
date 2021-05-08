@@ -37,6 +37,29 @@ app.get("/api/ranking", (req, res) => {
   res.status(200).send(rank);
 });
 
+app.get(
+  "/.well-known/pki-validation/4E8D4905B864AAEA8DAF166093D3C323.txt",
+  (req, res) => {
+    fs.readFile(`4E8D4905B864AAEA8DAF166093D3C323.txt`, "utf8", function (
+      err,
+      data
+    ) {
+      var template = `
+    <!doctype html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+    </head>
+    <body>
+      ${data}
+    </body>
+    </html>
+    `;
+      response.end(template);
+    });
+  }
+);
+
 app.post("/api/ranking", (req, res) => {
   console.log(req.body);
   const { nick, time } = req.body;
