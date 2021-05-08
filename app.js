@@ -43,7 +43,7 @@ app.post("/api/ranking", (req, res) => {
   rank.push({ nick: nick, time: time });
   res.status(200).send("성공");
 });
-http.createServer(app).listen(4000);
+http.createServer(app).listen(3000);
 //https.createServer(options, app).listen(port);
 
 module.exports = app;
