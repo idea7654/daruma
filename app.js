@@ -12,16 +12,16 @@ const cors = require("cors");
 let rank = [{ nick: "이데아", time: "2.37" }];
 
 app.set("port", port);
-app.use(function (req, res, next) {
-  console.log("작동중");
-  if (req.secure) {
-    // request was via https, so do no special handling
-    next();
-  } else {
-    // request was via http, so redirect to https
-    res.redirect("https://" + req.headers.host + req.url);
-  }
-});
+// app.use(function (req, res, next) {
+//   console.log("작동중");
+//   if (req.secure) {
+//     // request was via https, so do no special handling
+//     next();
+//   } else {
+//     // request was via http, so redirect to https
+//     res.redirect("https://" + req.headers.host + req.url);
+//   }
+// });
 app.use(express.static("public"));
 app.use(cors());
 app.use(express.json());
@@ -73,6 +73,6 @@ app.post("/api/ranking", (req, res) => {
   res.status(200).send("성공");
 });
 http.createServer(app).listen(4000);
-https.createServer(options, app).listen(port);
+// https.createServer(options, app).listen(port);
 
 module.exports = app;
