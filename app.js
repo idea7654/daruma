@@ -45,6 +45,7 @@ app.get(
       data
     ) {
       const split = data.split(" ");
+      console.log(split);
       var template = `
     <!doctype html>
     <html>
