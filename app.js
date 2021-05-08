@@ -52,11 +52,11 @@ app.get(
       <meta charset="utf-8">
     </head>
     <body>
-      ${data[0]}
+      ${split[0]}
       <br>
-      ${data[1]}
+      ${split[1]}
       <br>
-      ${data[2]}
+      ${split[2]}
     </body>
     </html>
     `;
