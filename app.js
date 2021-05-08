@@ -44,6 +44,7 @@ app.get(
       err,
       data
     ) {
+      const split = data.split(" ");
       var template = `
     <!doctype html>
     <html>
@@ -51,7 +52,11 @@ app.get(
       <meta charset="utf-8">
     </head>
     <body>
-      ${data}
+      ${data[0]}
+      <br>
+      ${data[1]}
+      <br>
+      ${data[2]}
     </body>
     </html>
     `;
