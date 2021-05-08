@@ -55,7 +55,7 @@ app.get(
     </body>
     </html>
     `;
-      response.end(template);
+      res.end(template);
     });
   }
 );
