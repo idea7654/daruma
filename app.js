@@ -44,6 +44,6 @@ app.post("/api/ranking", (req, res) => {
   res.status(200).send("성공");
 });
 http.createServer(app).listen(4000);
-https.createServer(options, app).listen(port);
+//https.createServer(options, app).listen(port);
 
 module.exports = app;
