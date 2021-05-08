@@ -43,13 +43,6 @@ app.post("/api/ranking", (req, res) => {
   rank.push({ nick: nick, time: time });
   res.status(200).send("성공");
 });
-
-app.get(
-  "/.well-known/pki-validation/4E8D4905B864AAEA8DAF166093D3C323.txt",
-  (req, res) => {
-    express.static("4E8D4905B864AAEA8DAF166093D3C323.txt");
-  }
-);
 http.createServer(app).listen(4000);
 //https.createServer(options, app).listen(port);
 
