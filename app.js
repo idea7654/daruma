@@ -10,7 +10,7 @@ const app = express();
 const port = 3000;
 const http = require("http");
 const cors = require("cors");
-let rank = [{ nick: "이데아", time: "2.37" }];
+let rank = [{ nick: "イデア", time: "2.37" }];
 
 app.set("port", port);
 app.use(function (req, res, next) {

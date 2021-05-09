@@ -13,7 +13,7 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <title>무궁화 꽃이 피었습니다</title>
+    <title>だるまさんがころんだ</title>
   </head>
 
   <style>
@@ -62,7 +62,7 @@
         type="button"
         style="transition: all 0.15s ease"
       >
-        랭킹보기
+        ランキング
       </button>
     </div>
     <div id="overlay">
@@ -86,26 +86,26 @@
       <button id="gamestart" class="bg-green-500 text-white active:bg-green-600 font-bold uppercase text-xs rounded shadow hover:shadow-md outline-none focus:outline-none px-4 py-2 mt-2"></button>
     </div>
     <div id="gameOver">
-      게임오버!!
+      GameOver
     </div>
     <div id="submitServe" style="position: absolute; left: 50%; top: 70%; transform: translate(-50%, -50%); visibility: hidden;">
       <input id="submitInput" class="px-2 py-1 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-1/2" type="text" placeholder="닉네임을 입력해주세요" />
       <button id="btServer" class="bg-green-500 text-white active:bg-green-600 font-bold uppercase text-xs rounded shadow hover:shadow-md outline-none focus:outline-none px-4 py-2 mt-2">등록</button>
     </div>
     <div id="gameInfo" style="margin: 2rem">
-      <p class="text-3xl mb-2">게임방법</p>
+      <p class="text-3xl mb-2">遊び方</p>
       <hr />
       <ol type="1">
-        <li>ArCore를 지원하는 디바이스의 Chrome브라우저에서만 작동합니다.</li>
-        <li>5미터 이상 떨어진 공간을 확보해주세요.</li>
-        <li>화면을 터치해 술래를 설치해주세요.</li>
-        <li>술래가 나타나면 위의 게임시작 버튼을 눌러주세요.</li>
-        <li>술래는 앞뒤가 똑같아 보이지만 앞면만 코가 튀어나와 있습니다!</li>
+        <li>ArCoreを支援する Chromeブラウザの上で作動します.</li>
+        <li>５メートル以上の空間を確保してください.</li>
+        <li>画面をタップしてだるまを設置してください.</li>
+        <li>だるまが現れるとうGameStartボタンをタップしてください.</li>
+        <li>だるまは前と後ろが同じように見えますが前の方は鼻が出ています.</li>
         <li>
-          술래의 앞면이 당신을 바라볼때 핸드폰이 10cm이상 움직이면 실패합니다.
+          だるまさんの前方があなたを見つめる時、携帯が10cm以上動くと失敗です.
         </li>
-        <li>술래에게 들키지 않고 무사히 다가가면 성공합니다.</li>
-        <li>행운을 빌어요!</li>
+        <li>だるまさんに気付かれず近づいたら成功です.</li>
+        <li>幸運を祈ります！</li>
       </ol>
     </div>
     <div id="rankingInfo" style="visibility: hidden">
@@ -116,7 +116,7 @@
           <div class="flex flex-col items-start p-4">
             <div class="flex items-center w-full">
               <div class="text-gray-900 font-medium text-lg">
-                랭킹
+                ランキング
               </div>
               <svg
                 id="exit"

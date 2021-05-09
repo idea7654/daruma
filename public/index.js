@@ -38,7 +38,6 @@ const initScene = (gl, session) => {
     1000
   );
   //---
-  //--- igloo model
   const loader = new ColladaLoader();
   loader.load("model.dae", (collada) => {
     const box = new THREE.Box3().setFromObject(collada.scene);
@@ -50,6 +49,7 @@ const initScene = (gl, session) => {
     collada.scene.children[0].children[1].remove(
       collada.scene.children[0].children[1].children[2]
     );
+    //モデルにある白い線を削除
     collada.scene.position.set(-c.x, size.y / 2 - c.y, -c.z);
     model = new THREE.Object3D();
     model.add(collada.scene);
@@ -146,7 +146,8 @@ function onSessionStarted(session) {
   // Show which type of DOM Overlay got enabled (if any)
   if (session.domOverlayState) {
     info.innerHTML = "DOM Overlay type: " + session.domOverlayState.type;
-    document.getElementById("warn").innerHTML = "클릭해서 술래를 설치해주세요!";
+    document.getElementById("warn").innerHTML =
+      "タップしてだるまさんを設置してください";
   }
 
   // create a canvas element and WebGL context for rendering
@@ -180,7 +181,7 @@ function placeObject() {
     model.quaternion.setFromRotationMatrix(controller.matrixWorld);
     scene.add(model);
     document.getElementById("warn").innerHTML = "";
-    document.getElementById("gamestart").innerHTML = "게임 시작!!";
+    document.getElementById("gamestart").innerHTML = "GameStart";
     document.getElementById("gamestart").addEventListener("click", startFunc);
     document.getElementById("gamestart").style.visibility = "visible";
     controller.removeEventListener("select", placeObject);
@@ -246,7 +247,7 @@ function updateAnimation() {
 
     if (reverseHead) {
       if (model.rotation.y < Math.PI) {
-        model.rotation.y += Math.PI / moveSpeed; //20 -> 초값.
+        model.rotation.y += Math.PI / moveSpeed; //20 -> 秒値.
       } else {
         model.rotation.y = Math.PI;
         if (voiceFlag) {
@@ -257,11 +258,11 @@ function updateAnimation() {
       }
       if (playerVector) {
         if (playerVector.distanceTo(model.position) < 2) {
-          //터치할 수 있는 로직
+          //タップできる範囲
           xrSession.end();
-          document.getElementById("gameOver").innerHTML = `걸린시간 : ${
+          document.getElementById("gameOver").innerHTML = `かかり時間 : ${
             successTime / 1000
-          }초`;
+          }秒`;
           document.getElementById("submitServe").style.visibility = "visible";
           document.getElementById("gameOver").style.visibility = "visible";
           goalFlag = true;
@@ -293,7 +294,7 @@ function updateAnimation() {
             gameEnd = true;
           }
         }
-        //움직이면 죽는 로직
+        //動くとGameOverになる
       }
       if (intervalFlag) {
         setTimeout(function () {
@@ -304,7 +305,7 @@ function updateAnimation() {
             turnFlag = true;
           }
           intervalFlag = true;
-        }, playTime.time); // 3000 -> 초값 랜덤.
+        }, playTime.time); // 3000 -> 秒値・ランダム.
         intervalFlag = false;
       }
     }
@@ -354,7 +355,7 @@ function rankingFunc() {
   if (rankList.childNodes.length < 3) {
     axios.get("https://mwgame.site/api/ranking").then((res) => {
       for (let i in res.data) {
-        rankList.append(`${res.data[i].nick}: ${res.data[i].time}초`);
+        rankList.append(`${res.data[i].nick}: ${res.data[i].time}秒`);
         rankList.appendChild(document.createElement("br"));
       }
     });
