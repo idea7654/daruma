@@ -6,7 +6,7 @@
 
 ___
 
-WebXR - AR Coreを支援しるデバイスのChromeブラウザ [https://immersive-web.github.io/webxr/explainer.html]
+WebXR - [AR Coreを支援しるデバイスのChromeブラウザ] (https://immersive-web.github.io/webxr/explainer.html)
 
 ## 使用プログラム
 
@@ -61,5 +61,4 @@ ___
 
 ___
 
-[mwgame.site][gameLink]
-
+https://mwgame.site
